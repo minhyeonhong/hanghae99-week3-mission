@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/layout/Layout";
-
+import List from "../components/list/List";
+import Form from "../components/form/Form";
+import Header from "../components/header/Header";
 
 function TodoList() {
     const [todoList, setTodoList] = useState([
@@ -19,13 +21,11 @@ function TodoList() {
     ]);
 
     return (
-        <Layout todoList={todoList} setTodoList={setTodoList} />
-        //?? 이게 레이아웃도 컴포넌트로 만들면 페이지로써의 의미가 있나?
-        // <div className="layout">
-        //     <Header />
-        //     <Form inputText={inputText} getInput={getInput} addTodo={addTodo} />
-        //     <List todoList={todoList} changeDone={changeDone} deleteTodo={deleteTodo} />
-        // </div>
+        <Layout>
+            <Header />
+            <Form todoList={todoList} setTodoList={setTodoList} />
+            <List todoList={todoList} setTodoList={setTodoList} />
+        </Layout>
     );
 }
 
