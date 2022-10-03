@@ -44,6 +44,7 @@ function TodoList() {
         ) {
             setTodoList([...todoList, obj]);
         }
+        setInputText({});
     };
 
     //done변경
