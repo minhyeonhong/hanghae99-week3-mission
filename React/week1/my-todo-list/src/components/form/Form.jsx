@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Form.css";
 
-function Form({ inputText, getInput, addTodo }) {
+function Form({ todoList, setTodoList }) {
+
+    const [inputText, setInputText] = useState({ title: "", content: "" });
+
+    //인풋 바뀔때 마다 값넣기
+    const getInput = (e) => {
+        setInputText({
+            ...inputText,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    //추가 했을때 리스트에 추가
+    const addTodo = () => {
+        let obj = {
+            id: todoList.length,
+            title: inputText.title,
+            content: inputText.content,
+            done: false,
+        };
+        if (
+            inputText.title !== "" &&
+            inputText.content !== "" &&
+            inputText.title !== undefined &&
+            inputText.content !== undefined
+        ) {
+            setTodoList([...todoList, obj]);
+        }
+        setInputText({});
+    };
+
     return (
         <div className="add-form">
             <div className="input-group">
