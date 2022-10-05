@@ -1,11 +1,18 @@
 import React from "react";
 import "./Layout.css";
+import styled from "styled-components";
+
+const StLayoutDiv = styled.div`
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 800px;
+`;
 
 function Layout(props) {
     return (
-        <div className="layout">
+        <StLayoutDiv>
             {props.children}
-        </div>
+        </StLayoutDiv>
     );
 }
 
